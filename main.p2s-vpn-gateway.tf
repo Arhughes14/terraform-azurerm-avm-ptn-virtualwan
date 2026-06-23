@@ -36,6 +36,7 @@ resource "azurerm_point_to_site_vpn_gateway" "p2s_gateway" {
   scale_unit                  = each.value.scale_unit
   virtual_hub_id              = module.virtual_hubs.resource[each.value.virtual_hub_key].id
   vpn_server_configuration_id = azurerm_vpn_server_configuration.p2s_gateway_vpn_server_configuration[each.value.p2s_gateway_vpn_server_configuration_key].id
+  dns_servers                 = each.value.dns_servers
   tags                        = each.value.tags
   dns_servers                 = each.value.dns_servers
 
